@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal} from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 //import moment from "moment/min/moment.min"
 import moment from "moment-timezone/builds/moment-timezone-with-data"
@@ -7,25 +7,13 @@ import TimeRangeSlider from "react-time-range-slider"
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles.css"
-import { NONAME } from 'dns';
-
-import "./styles.css"
 
 class PeriodsOfActivityModal extends Component {
-  //export default function PeriodsOfActivityModal({ show, handleShowModal, handleHideModal, saveDataRequest, isEdit, selectedData, updateDataRequest, formData }) {
-
-  state = {
-    selectedFromDate: new Date(),
-  }
 
   handleChange = (date, activityPeriodArray, startDateArray, endDateArray, startTimeArray, endTimeArray) => {
     const { setSelectedDate, setStartTime, setEndTime, setTimeRange } = this.props
-    console.log("selected date:", date)
     const formatedDate = moment(date, "DD/MM/YYYY").format("DD/MM/YYYY")
-    console.log("formatedDate:", formatedDate)
     const index = activityPeriodArray.indexOf(formatedDate)
-    console.log("index:", index)
-    console.log("setSelectedDate:", setSelectedDate)
     setSelectedDate(date)
     const startIndex = startDateArray.indexOf(formatedDate)
     setStartTime(startTimeArray[startIndex])
@@ -37,24 +25,14 @@ class PeriodsOfActivityModal extends Component {
   render() {
     const {
       show,
-      handleShowModal,
       handleHideModal,
-      saveDataRequest,
-      isEdit,
       selectedData,
-      updateDataRequest,
-      formData,
       selectedFromDate,
       startTime,
       endTime,
       value,
     } = this.props
-    console.log("isEdit: ", isEdit)
-    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&")
-    //console.log("selectedFromDate:", selectedFromDate)
-    console.log("selectedData:", selectedData)
-    const { activity_periods, tz } = selectedData
-    const startDate = new Date()
+    const { activity_periods} = selectedData
     const activityPeriodArray = []
     const startDateArray = []
     const endDateArray = []
@@ -74,11 +52,7 @@ class PeriodsOfActivityModal extends Component {
       return null;
     }
     )
-    console.log("activityPeriodArray:", activityPeriodArray)
-    console.log("startDateArray:", startDateArray)
-    console.log("endDateArray:", endDateArray)
-    console.log("startTimeArray:", startTimeArray)
-    console.log("endTimeArray:", endTimeArray)
+    
     return (
       <Modal
         className="todo-modal"

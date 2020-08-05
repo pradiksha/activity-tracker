@@ -17,10 +17,6 @@
 .random {
   color: red !important;
 }
-/*.input-range--disabled {
-  background: #b50e05 !important;
-  border: 1px solid #b50e05 !important;
-}*/
 .input-range--disabled .input-range__track {
   background: #b50e05 !important; 
 }

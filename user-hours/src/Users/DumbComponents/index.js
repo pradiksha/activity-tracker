@@ -3,12 +3,7 @@ import Container from "Users/Components"
 import Header from "Users/Common/Header"
 import Dashboard from "./Dashboard"
 import PeriodsOfActivityModal from "./PeriodsOfActivityModal"
-//import TodoModal from "./TodoModal"
 
-
-const Button = ({ onClick, children, className }) => (
-  <button type="button" onClick={onClick} className={`btn ${className}`}>{children}</button>
-)
 
 class Users extends Component {
 
@@ -23,20 +18,6 @@ class Users extends Component {
     getAllDataReq()
   }
 
-  componentWillReceiveProps(nextProps) {
-    /*const { saveSuccess, saveDataClear, getAllDataReq, dashboardFetching, updateDataClear, updateSuccess, deleteSuccess, deleteDataClear } = nextProps
-    if(deleteSuccess) {
-      deleteDataClear()
-      getAllDataReq()
-    }
-    if ((saveSuccess || updateSuccess) && !dashboardFetching) {
-      saveDataClear()
-      updateDataClear()
-      this.setState({ showModal: false, selectedData: {} })
-      getAllDataReq()
-    }*/
-  }
-
   handleShowModal = () => {
     const { setModalVisibility } = this.props
     setModalVisibility(true)
@@ -49,10 +30,11 @@ class Users extends Component {
     this.setState({ showModal: false, isEdit: false, selectedData: {} })
   }
 
-  handleEdit = (value) =>  {
+  handleEdit = (value) => {
     const { setModalVisibility } = this.props
     setModalVisibility(true)
-    this.setState({ selectedData: value, isEdit: true, showModal: true }) }
+    this.setState({ selectedData: value, isEdit: true, showModal: true })
+  }
 
   render() {
     const {
@@ -68,14 +50,11 @@ class Users extends Component {
       value,
       setTimeRange,
     } = this.props
-    console.log("*******************")
-    console.log("datalist:", dataList)
-    console.log("dashboardFetching:", dashboardFetching)
     return (
       <div>
         <Header />
         <h1>Employees List</h1>
-        {!dashboardFetching && <Dashboard list={dataList} onEdit={this.handleEdit}  />}
+        {!dashboardFetching && <Dashboard list={dataList} onEdit={this.handleEdit} />}
         <PeriodsOfActivityModal
           show={isModalOpen}
           handleShowModal={this.handleShowModal}

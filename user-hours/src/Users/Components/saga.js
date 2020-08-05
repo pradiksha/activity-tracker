@@ -1,5 +1,4 @@
-import { put, call, takeEvery, select } from 'redux-saga/effects'
-import { getFormValues } from "redux-form"
+import { put, call, takeEvery } from 'redux-saga/effects'
 import * as actions from "./action"
 import { getAllApi } from "./api"
 

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { getFormValues } from "redux-form"
 import get from "lodash/get"
 
 import * as actions from "./action"
@@ -9,11 +8,6 @@ const mapStateToProps = (state) => {
   const { isModalOpen, dashboardData, selectedFromDate, startTime, endTime, value } =  usersData
   const dataList = get(dashboardData, "data.members", []) || []
   const dashboardFetching = get(dashboardData, "isFetching", false)
-  /*const saveSuccess = get(todoData, "saveData.data.status", "") === "200"
-  const updateSuccess = get(todoData, "updatedData.data.status", "") === "200"
-  const deleteSuccess = get(todoData, "deletedData.data.status", "") === "200"
-  const formData = getFormValues("todoForm")(state)*/
-
 
   return {
     dataList,
