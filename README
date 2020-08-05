@@ -1,1 +1,15 @@
-This is a git repo
+To run this project you need to have "node" installed with version above 8
+
+Switch to user-hours
+
+Running the project in development mode
+
+Install all dependencies
+ "npm install"
+
+Running the server
+
+"npm run start" (This will start the node server - sudo might be required)
+
+http://localhost:3000/ (Server is listening on port: 3000 )
+
