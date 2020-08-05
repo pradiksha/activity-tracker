@@ -49,3 +49,7 @@
   border-radius: 5px !important;
   padding-left: 10px !important;
 }
+.input-range {
+  width: 65% !important;
+  margin-left: 20px !important;
+}

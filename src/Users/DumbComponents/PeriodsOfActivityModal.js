@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal} from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 //import moment from "moment/min/moment.min"
 import moment from "moment-timezone/builds/moment-timezone-with-data"
@@ -16,10 +16,19 @@ class PeriodsOfActivityModal extends Component {
     const index = activityPeriodArray.indexOf(formatedDate)
     setSelectedDate(date)
     const startIndex = startDateArray.indexOf(formatedDate)
-    setStartTime(startTimeArray[startIndex])
-    const endIndex = endDateArray.indexOf(formatedDate)
-    setEndTime(endTimeArray[endIndex])
-    setTimeRange({ start: moment(startTimeArray[startIndex], "hh:mm A").format("HH:mm"), end: moment(endTimeArray[endIndex], "hh:mm A").format("HH:mm") })
+    if (startIndex !== -1) {
+      setStartTime(startTimeArray[startIndex])
+      const endIndex = endDateArray.indexOf(formatedDate)
+      if (endIndex !== -1) {
+        setEndTime(endTimeArray[endIndex])
+        setTimeRange({ start: moment(startTimeArray[startIndex], "hh:mm A").format("HH:mm"), end: moment(endTimeArray[endIndex], "hh:mm A").format("HH:mm") })
+      }
+    } else {
+      setStartTime("00:00")
+      setEndTime("00:00")
+      setTimeRange({ start: "00:00", end: "00:00" })
+    }
+
   }
 
   render() {
@@ -32,7 +41,7 @@ class PeriodsOfActivityModal extends Component {
       endTime,
       value,
     } = this.props
-    const { activity_periods} = selectedData
+    const { activity_periods } = selectedData
     const activityPeriodArray = []
     const startDateArray = []
     const endDateArray = []
@@ -52,7 +61,7 @@ class PeriodsOfActivityModal extends Component {
       return null;
     }
     )
-    
+
     return (
       <Modal
         className="todo-modal"
@@ -79,13 +88,17 @@ class PeriodsOfActivityModal extends Component {
               <p className="lable-txt">Start Time:<span className="time">{startTime}</span></p>
               <p className="lable-txt">End Time:<span className="time">{endTime}</span></p>
             </div>
-            <TimeRangeSlider
-              disabled={false}
-              format={24}
-              maxValue={"23:59"}
-              minValue={"00:00"}
-              name={"time_range"}
-              value={value} />
+            <div className="d-flex">
+              <p className="lable-txt">Time Range:</p>
+              <TimeRangeSlider
+                disabled={false}
+                format={24}
+                maxValue={"23:59"}
+                minValue={"00:00"}
+                name={"time_range"}
+                value={value}
+              />
+            </div>
           </div>
         </Modal.Body>
       </Modal>

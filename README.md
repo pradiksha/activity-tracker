@@ -1,5 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+For this project you need to have "nodejs" installed with version higher than 8.
+
+## Running the project in development mode
+
+ switch to the project "activity-tracker"
+
+## Install all dependencies
+
+  npm install
+
+## Running the server
+
+
+npm run start (This will start the node server - sudo might be required)
+
+http://localhost:3000/ (Server is listening on port: 3000 )
+
+
 ## Available Scripts
 
 In the project directory, you can run:
