@@ -1,0 +1,55 @@
+.table-header {
+  background-color: #b50e05;
+  color: #fff;
+}
+.modal-body {
+  padding: 15px;
+}
+.ml-10 {
+  margin-left: 100px;
+}
+.mr-10 {
+  margin-right: 100px;
+}
+.table-body {
+    cursor: pointer;
+}
+.random {
+  color: red !important;
+}
+/*.input-range--disabled {
+  background: #b50e05 !important;
+  border: 1px solid #b50e05 !important;
+}*/
+.input-range--disabled .input-range__track {
+  background: #b50e05 !important; 
+}
+.input-range__track--active {
+  background: #b50e05 !important; 
+}
+.input-range__slider {
+  background: #b50e05 !important;
+  border: 1px solid #b50e05 !important; 
+}
+.modal-header {
+  background: #b50e05 !important;
+  color: #fff !important;
+}
+.modal-header .close {
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+}
+.lable-txt {
+  padding-left: 20px;
+  padding-right: 10px;
+  color: #b50e05;
+  font-weight: bold;
+}
+.lable-txt .time{
+  color: black;
+  padding-left: 10px !important;
+}
+.react-datepicker__input-container input {
+  border-radius: 5px !important;
+  padding-left: 10px !important;
+}
